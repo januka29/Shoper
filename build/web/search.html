@@ -1,0 +1,285 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Shoper | Search</title>
+        <meta name="robots" content="noindex, follow" />
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="img/shoperfoxN.png">
+
+        <!-- CSS
+        ============================================ -->
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/old/assets/css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/old/assets/css/vendor/font-awesome.css">
+        <link rel="stylesheet" href="assets/old/assets/css/vendor/flaticon/flaticon.css">
+        <link rel="stylesheet" href="assets/old/assets/css/vendor/slick.css">
+        <link rel="stylesheet" href="assets/old/assets/css/vendor/slick-theme.css">
+        <link rel="stylesheet" href="assets/old/assets/css/vendor/jquery-ui.min.css">
+        <link rel="stylesheet" href="assets/old/assets/css/vendor/sal.css">
+        <link rel="stylesheet" href="assets/old/assets/css/vendor/magnific-popup.css">
+        <link rel="stylesheet" href="assets/old/assets/css/vendor/base.css">
+        <link rel="stylesheet" href="assets/old/assets/css/style.min.css">
+        <link rel="stylesheet" href="assets/old/assets/css/notification.css">
+
+    </head>
+
+
+    <body class="sticky-header" onload="loadData();">
+        <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+        <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
+        <header class="header axil-header header-style-1">
+
+            <a class="navbar-brand logo_h" href="index.html"><img src="img/shoperNlogo.png" alt=""></a>
+
+        </header>
+        <!-- End Header -->
+
+        <main class="main-wrapper">
+
+
+            <!-- Start Shop Area  -->
+            <div class="axil-shop-area axil-section-gap banner-area">
+                <div class="container banner-area">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="axil-shop-sidebar">
+                                <div class="d-lg-none">
+                                    <button class="sidebar-close filter-close-btn"><i class="fas fa-times"></i></button>
+                                </div>
+                                <div class="toggle-list product-categories active">
+                                    <h6 class="title">CATEGORY</h6>
+                                    <div class="shop-submenu">
+                                        <ul id="category-options">
+                                            <!--<li class="current-cat"><a href="#">Apple</a></li>-->
+                                            <li id="category-li"><a id="category-a">Apple</a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="toggle-list product-categories product-gender active">
+                                    <h6 class="title">CONDITION</h6>
+                                    <div class="shop-submenu">
+                                        <ul id="condition-options">
+                                            <!--<li class="chosen"><a href="#">New</a></li>-->
+                                            <li id="condition-li"><a id="condition-a">Newdrrr</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="toggle-list product-color active">
+                                    <h6 class="title">COLOR</h6>
+                                    <div class="shop-submenu">
+                                        <ul id="color-options">
+                                            <!--<li class="chosen" style="border-color: red;"><a style="background: red;" href="#" class="color-extra-02"></a></li>-->
+                                            <li style="border-color: red;" id="color-li"><a style="background: red;" class="color-extra-02" id="color-a"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="toggle-list product-size active">
+                                    <h6 class="title">STORAGE</h6>
+                                    <div class="shop-submenu">
+                                        <ul id="storage-options">
+                                            <!--<li class="chosen"><a href="#">128 GB</a></li>-->
+                                            <li id="storage-li"><a id="storage-a">128 GB</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="toggle-list product-price-range active">
+                                    <h6 class="title">PRICE</h6>
+                                    <div class="shop-submenu">
+                                        <form action="#" class="mt--25">
+                                            <div id="slider-range"></div>
+                                            <div class="flex-center mt--20">
+                                                <input type="text" id="amount" class="amount-range" readonly>
+                                            </div>
+                                        </form>
+                                    </div>r
+                                </div>
+                                <button class="axil-btn btn-bg-secondary" onclick="searchProducts(0);">Apply</button>
+                                <button class="axil-btn btn-bg-primary mt--10" onclick="resetAllFilters()">Reset All</button>
+                            </div>
+                            <!-- End .axil-shop-sidebar -->
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="axil-shop-top mb--40">
+                                        <div class="category-select align-items-center justify-content-lg-end justify-content-between">
+                                            <!-- Start Single Select  -->
+                                            <span class="filter-results">Showing 1-10 of 20 results</span>
+                                            <select class="single-select" id="st-sort">
+                                                <option>Sort by Latest</option>
+                                                <option>Sort by Oldest</option>
+                                                <option>Sort by Name</option>
+                                                <option>Sort by Price</option>
+                                            </select>
+                                            <!-- End Single Select  -->
+                                        </div>
+                                        <div class="d-lg-none">
+                                            <button class="product-filter-mobile filter-toggle"><i class="fas fa-filter"></i> FILTER</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End .row -->
+
+                            <div class="row row--15" id="st-product-container">
+                                <div class="col-xl-4 col-sm-6" id="st-product">
+                                    <div class="axil-product product-style-one mb--30">
+                                        <div class="thumbnail">
+                                            <a href="single-product.html" id="st-product-a-1">
+                                                <img id="st-product-img-1" alt="Product Images">
+                                            </a>
+
+                                            <div class="product-hover-action">
+                                                <ul class="cart-action">
+                                                    <li class="wishlist"><a href="#"><i class="far fa-heart"></i></a></li>
+                                                    <li class="select-option"><a href="#">Add to Cart</a></li>
+                                                    <li class="quickview"><a href="#" id="st-product-a-2"><i class="far fa-eye"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="inner">
+                                                <h5 class="title"><a href="#" id="st-product-title-1">Apple iPhone 15 Pro</a></h5>
+                                                <div class="product-price-variant">
+                                                    <span class="price current-price">Rs. <span id="st-product-price-1"></span> </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Single Product  -->
+                            </div>
+
+                            <div class="text-center pt--20" id="st-pagination-container">
+                                <a  class="axil-btn btn-bg-primary me-2" id="st-pagination-button">Prev</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- End .container -->
+            </div>
+            <!-- End Shop Area  -->
+
+
+        </main>
+
+        <!-- start footer Area -->
+	<footer class="footer-area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>About Us</h6>
+						<p style="text-align: justify;">
+							Welcome to Shoper Footwears, your ultimate destination for stylish, comfortable, and high-quality footwear.
+                                                        We are passionate about crafting shoes that combine fashion and functionality to keep you moving confidently 
+                                                        every step of the way.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-4  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>Newsletter</h6>
+						<p>Stay update with our latest</p>
+						<div class="" id="mc_embed_signup">
+
+							<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+							 method="get" class="form-inline">
+
+								<div class="d-flex flex-row">
+
+									<input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
+									 required="" type="email">
+
+
+									<button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+									<div style="position: absolute; left: -5000px;">
+										<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+									</div>
+
+									<!-- <div class="col-lg-4 col-md-4">
+												<button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+											</div>  -->
+								</div>
+								<div class="info"></div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget mail-chimp">
+						<h6 class="mb-20">Instragram Feed</h6>
+						<ul class="instafeed d-flex flex-wrap">
+							<li><img src="img/i1.jpg" alt=""></li>
+							<li><img src="img/i2.jpg" alt=""></li>
+							<li><img src="img/i3.jpg" alt=""></li>
+							<li><img src="img/i4.jpg" alt=""></li>
+							<li><img src="img/i5.jpg" alt=""></li>
+							<li><img src="img/i6.jpg" alt=""></li>
+							<li><img src="img/i7.jpg" alt=""></li>
+							<li><img src="img/i8.jpg" alt=""></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>Follow Us</h6>
+						<p>Let us be social</p>
+						<div class="footer-social d-flex align-items-center">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</footer>
+	<!-- End footer Area -->
+
+               
+
+        <!-- JS
+    ============================================ -->
+        <!-- Modernizer JS -->
+        <script src="assets/old/assets/js/vendor/modernizr.min.js"></script>
+        <!-- jQuery JS -->
+        <script src="assets/old/assets/js/vendor/jquery.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="assets/old/assets/js/vendor/popper.min.js"></script>
+        <script src="assets/old/assets/js/vendor/bootstrap.min.js"></script>
+        <script src="assets/old/assets/js/vendor/slick.min.js"></script>
+        <script src="assets/old/assets/js/vendor/js.cookie.js"></script>
+        <!-- <script src="assets/js/vendor/jquery.style.switcher.js"></script> -->
+        <script src="assets/old/assets/js/vendor/jquery-ui.min.js"></script>
+        <script src="assets/old/assets/js/vendor/jquery.ui.touch-punch.min.js"></script>
+        <script src="assets/old/assets/js/vendor/jquery.countdown.min.js"></script>
+        <script src="assets/old/assets/js/vendor/sal.js"></script>
+        <script src="assets/old/assets/js/vendor/jquery.magnific-popup.min.js"></script>
+        <script src="assets/old/assets/js/vendor/imagesloaded.pkgd.min.js"></script>
+        <script src="assets/old/assets/js/vendor/isotope.pkgd.min.js"></script>
+        <script src="assets/old/assets/js/vendor/counterup.js"></script>
+        <script src="assets/old/assets/js/vendor/waypoints.min.js"></script>
+
+        <!-- Main JS -->
+        <script src="assets/old/assets/js/main.js"></script>
+
+        <script src="assets/js/search.js"></script>
+        <script src="assets/old/assets/js/notification.js"></script>
+
+    </body>
+
+</html>
